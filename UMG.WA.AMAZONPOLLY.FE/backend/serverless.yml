@@ -1,0 +1,16 @@
+service: practicapollyaws
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  role: arn:aws:iam::359828633012:role/practicapollyaws
+
+functions:
+  speak:
+    handler: handler.practicapolly
+    events:
+      - http:
+          path: practicapolly
+          method: post
+      cors: true
